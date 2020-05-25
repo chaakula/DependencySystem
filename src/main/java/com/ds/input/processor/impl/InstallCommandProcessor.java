@@ -10,7 +10,7 @@ import com.ds.command.request.CommandRequest;
 public class InstallCommandProcessor implements CommandProcessor {
 	@Override
 	public CommandRequest processCommand(CommandRequest req) {
-		// System.out.println(req.getFullCommand());
+		System.out.println(req.getFullCommand());
 		String[] words = req.getFullCommand().split(" ");
 
 		if (req.getInstalledSet().contains(words[1])) {

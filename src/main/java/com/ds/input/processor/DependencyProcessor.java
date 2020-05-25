@@ -16,7 +16,6 @@ public class DependencyProcessor {
 		// Refactor don't have time hence keeping everything into single request object
 		// even factory is created
 		request = CommandRequestFactory.getCommandRequest("END");
-		// installedSet.add("Item 2");
 		for (String command : commands) {
 
 			List<String> commandList = Arrays.asList(command.split(" "));

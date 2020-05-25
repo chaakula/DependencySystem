@@ -14,7 +14,7 @@ public class RemoveCommandProcessor implements CommandProcessor {
 		if (req.getInstalledSet().contains(words[1])) {
 
 			Set<String> deps = req.getRevDeps().get(words[1]);
-			if (deps != null && deps.size() > 1) {
+			if (deps != null && deps.size() > 0) {
 				System.out.println("    " + words[1] + " is still needed");
 			} else {
 				removeDependency(words[1], req);
@@ -29,10 +29,14 @@ public class RemoveCommandProcessor implements CommandProcessor {
 	public static boolean removeDependency(String comp, CommandRequest req) {
 		Set<String> deps = req.getRevDeps().get(comp);
 
-		if (deps != null && !deps.isEmpty()) {
+		if (deps != null && !deps.isEmpty() && req.getInstalledSet().contains(comp)) {
 			if (deps.size() == 1) {
-				System.out.println("    Removing " + comp);
-				req.getInstalledSet().remove(comp);
+
+				boolean result = req.getInstalledSet().remove(comp);
+				boolean depsResult = deps.remove(comp);
+				if (result && depsResult) {
+					System.out.println("\tRemoving " + comp);
+				}
 				deps.remove(comp);
 				List<String> comps = req.getMap().get(comp);
 				if (comps != null) {
@@ -42,7 +46,7 @@ public class RemoveCommandProcessor implements CommandProcessor {
 				}
 			}
 		} else {
-			System.out.println("    Removing " + comp);
+			System.out.println("\tRemoving " + comp);
 			List<String> comps = req.getMap().get(comp);
 			if (comps != null) {
 				comps.forEach(depn -> {
