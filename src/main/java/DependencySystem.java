@@ -16,13 +16,8 @@ public class DependencySystem {
 
 		DependencyProcessor processor = new DependencyProcessor();
 
-		List<String> processedCommands = processor.processCommands(commands);
-		/*if (processedCommands != null) {
-			for (String command : processedCommands) {
-				System.out.println(command);
-
-			}
-		}*/
+		processor.processCommands(commands);
+		
 
 	}
 
