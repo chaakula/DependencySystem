@@ -10,14 +10,17 @@ public class DependencySystem {
 	public static void main(String[] args) {
 
 		InputReader reader = new FileInputReader();
-		List<String> commands = reader.readInput();
+		List<String> commands;
+		try {
+			commands = reader.readInput();
+			commands = ComandValidator.getValidCommands(commands);
 
-		commands = ComandValidator.getValidCommands(commands);
+			DependencyProcessor processor = new DependencyProcessor();
 
-		DependencyProcessor processor = new DependencyProcessor();
-
-		processor.processCommands(commands);
-		
+			processor.processCommands(commands);
+		} catch (Exception e) {
+			System.out.println("Error while processing the Request. Please contact System admin");
+		}
 
 	}
 

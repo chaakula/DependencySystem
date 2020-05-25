@@ -15,7 +15,7 @@ public class DependCommandProcessor implements CommandProcessor {
 		for (int i = 2; i < words.length; i++) {
 			set.add(words[i]);
 		}
-		command.getMap().put(words[1], set);
+		command.getDepMap().put(words[1], set);
 		return command;
 	}
 }
