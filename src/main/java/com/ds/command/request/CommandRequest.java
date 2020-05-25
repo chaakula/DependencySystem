@@ -4,54 +4,53 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class CommandRequest {
 
-	String commandCode;
-	String fullCommand;
-	List<String> installedSet = new ArrayList<>();
-	Map<String, List<String>> map = new LinkedHashMap<>();
-	Map<String, Set<String>> revDeps = new LinkedHashMap<>();
+    String commandCode;
+    String fullCommand;
+    List<InstalledComponent> installedSet = new ArrayList<>();
+    Map<String, List<String>> depMap = new LinkedHashMap<>();
+    Map<String, List<String>> revDeps = new LinkedHashMap<>();
 
-	public List<String> getInstalledSet() {
-		return installedSet;
-	}
+    public List<InstalledComponent> getInstalledSet() {
+        return installedSet;
+    }
 
-	public void setInstalledSet(List<String> installedSet) {
-		this.installedSet = installedSet;
-	}
+    public void setInstalledSet(List<InstalledComponent> installedSet) {
+        this.installedSet = installedSet;
+    }
 
-	public String getCommandCode() {
-		return commandCode;
-	}
+    public String getCommandCode() {
+        return commandCode;
+    }
 
-	public void setCommandCode(String commandCode) {
-		this.commandCode = commandCode;
-	}
+    public void setCommandCode(String commandCode) {
+        this.commandCode = commandCode;
+    }
 
-	public String getFullCommand() {
-		return fullCommand;
-	}
+    public String getFullCommand() {
+        return fullCommand;
+    }
 
-	public void setFullCommand(String fullCommand) {
-		this.fullCommand = fullCommand;
-	}
+    public void setFullCommand(String fullCommand) {
+        this.fullCommand = fullCommand;
+    }
 
-	public Map<String, List<String>> getMap() {
-		return map;
-	}
+    public Map<String, List<String>> getDepMap() {
+        return depMap;
+    }
 
-	public void setMap(Map<String, List<String>> map) {
-		this.map = map;
-	}
+    public void setDepMap(Map<String, List<String>> map) {
+        this.depMap = map;
+    }
 
-	public Map<String, Set<String>> getRevDeps() {
-		return revDeps;
-	}
+    public Map<String, List<String>> getRevDeps() {
+        return revDeps;
+    }
 
-	public void setRevDeps(Map<String, Set<String>> revDeps) {
-		this.revDeps = revDeps;
-	}
+    public void setRevDeps(Map<String, List<String>> revDeps) {
+        this.revDeps = revDeps;
+    }
 
 }
