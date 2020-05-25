@@ -11,13 +11,11 @@ public class DependencyProcessor {
 	CommandRequest request;
 
 	public List<String> processCommands(List<String> commands) {
-		// installedSet.add("Item 1");
-		// installedSet.add("Item 2");
+
 
 		// Refactor don't have time hence keeping everything into single request object
 		// even factory is created
 		request = CommandRequestFactory.getCommandRequest("END");
-		request.getInstalledSet().add("Item 1");
 		// installedSet.add("Item 2");
 		for (String command : commands) {
 
